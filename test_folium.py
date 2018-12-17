@@ -19,10 +19,12 @@ yokohama_st = [35.466004, 139.622539]
 shibuya_st = [35.658047, 139.701664]
 # 上野駅
 ueno_st = [35.714167, 139.777383]
+# 保存ファイル名
+savename = "map.html"
 
 
 # ------------------
-# 自作関数
+# 関数
 # ------------------
 def get_geojson_grid(upper_right, lower_left, n=6):
     """Returns a grid of geojson rectangles, and computes the exposure in each section of the grid based on the vessel data.
@@ -113,7 +115,8 @@ def main():
         gj.add_child(popup)
         m.add_child(gj)
     # 地図をhtml形式で出力
-    m.save(outfile="map.html")
+    m.save(outfile=savename)
+    print("save to {}".format(savename))
 
 
 if __name__ == "__main__":
